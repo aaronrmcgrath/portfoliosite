@@ -1,26 +1,45 @@
 {{define "about.html"}}
-<div class="bg-white rounded-xl shadow-lg p-8">
-    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 text-center mb-6">About Me</h2>
+<div class="brutal-container">
+    <h2 class="brutal-header">About Me</h2>
 
-    <div class="prose prose-lg max-w-none text-gray-600">
-        <p class="mb-4">
-            I'm a software developer that loves learning and solving problems. I graduated from Prime Digital Academy
-            in Bloomington, MN in 2016. There I learned the MEAN Stack (MongoDB, Express.js, AngularJS, and Node.js).
-            I also worked with jQuery, Bootstrap, Angular-Material, PostgreSQL, Passport, and many other great technologies.
-        </p>
+    <div class="p-6 space-y-6">
+        <div class="brutal-card">
+            <h3 class="text-xl md:text-2xl font-black uppercase mb-2 brutal-text">
+                Background
+            </h3>
+            <div class="brutal-divider w-16 mb-4"></div>
+            <p class="brutal-text mb-4 hover-highlight-line">
+                I'm a software developer that loves learning and solving problems. I graduated from Prime Digital Academy
+                in Bloomington, MN in 2016. There I learned the MEAN Stack (MongoDB, Express.js, AngularJS, and Node.js).
+                I also worked with jQuery, Bootstrap, Angular-Material, PostgreSQL, Passport, and many other great technologies.
+            </p>
+        </div>
 
-        <p class="mb-4">
-            My family is what makes me the happiest. I am a loving husband and proud father of two amazing boys.
-            They always give me something to smile about. My hobbies are: hiking, gardening, video-games,
-            cooking, movies/tv, comedy, writing, craft beer, board games, deep conversation, and discovery!
-            I'm addicted to learning and love to explore.
-        </p>
+        <div class="brutal-card">
+            <h3 class="text-xl md:text-2xl font-black uppercase mb-2 brutal-text">
+                Personal
+            </h3>
+            <div class="brutal-divider w-16 mb-4"></div>
+            <p class="brutal-text mb-4 hover-highlight-line">
+                My family is what makes me the happiest. I am a loving husband and proud father of two amazing boys.
+                They always give me something to smile about. My hobbies are: hiking, gardening, video-games,
+                cooking, movies/tv, comedy, writing, craft beer, board games, deep conversation, and discovery!
+                I'm addicted to learning and love to explore.
+            </p>
+        </div>
 
-        <p class="mb-6">
-            Please feel free to contact me by
-            <a href="mailto:info@aaronrmcgrath.com" class="text-cyan-600 hover:text-cyan-800 underline">email</a>.
-        </p>
+        <div class="brutal-card brutal-featured">
+            <h3 class="text-xl md:text-2xl font-black uppercase mb-2 brutal-text">
+                Contact
+            </h3>
+            <div class="brutal-divider w-16 mb-4 !bg-violet-400"></div>
+            <p class="brutal-text mb-4">
+                Feel free to reach out!
+            </p>
+            <a href="mailto:info@aaronrmcgrath.com" class="brutal-link">
+                Email Me →
+            </a>
+        </div>
     </div>
-
 </div>
 {{end}}

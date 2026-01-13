@@ -41,3 +41,10 @@ func Projects(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 }
+
+// Blog serves the blog section partial (for HTMX)
+func Blog(w http.ResponseWriter, r *http.Request) {
+	if err := templates.RenderPartial(w, "blog.html", nil); err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+}

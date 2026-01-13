@@ -33,6 +33,7 @@ func main() {
 	r.Get("/partials/about", handlers.About)
 	r.Get("/partials/resume", handlers.Resume)
 	r.Get("/partials/projects", handlers.Projects)
+	r.Get("/partials/blog", handlers.Blog)
 
 	// Get port from environment or default to 3000
 	port := os.Getenv("PORT")

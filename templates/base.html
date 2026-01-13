@@ -5,42 +5,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{.Title}}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Inter:wght@400;700;900&family=Playfair+Display:wght@400;700;900&family=Source+Serif+Pro:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/output.css">
     <script src="/static/js/htmx.min.js"></script>
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
 </head>
-<body class="bg-gray-50 min-h-screen">
+<body class="site-body">
     <!-- Header -->
-    <header class="bg-gradient-to-r from-cyan-600 to-teal-500 text-white shadow-lg">
+    <header class="site-header">
         <div class="container mx-auto px-4 py-6">
             <h1 class="text-3xl md:text-4xl font-bold text-center">Aaron McGrath</h1>
-            <p class="text-center text-cyan-100 mt-2">Software Developer</p>
+            <p class="text-center opacity-80 mt-2">Software Developer</p>
         </div>
     </header>
 
     <!-- Navigation -->
-    <nav class="bg-white shadow-md sticky top-0 z-10">
+    <nav class="site-nav">
         <div class="container mx-auto px-4">
-            <div class="flex justify-center space-x-2 md:space-x-8 py-4">
+            <div class="flex justify-center items-center space-x-2 md:space-x-6 py-4">
                 <button
                     hx-get="/partials/about"
                     hx-target="#content"
                     hx-swap="innerHTML"
-                    class="px-4 py-2 rounded-lg font-medium text-gray-700 hover:bg-cyan-100 hover:text-cyan-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-500">
-                    About Me
+                    class="nav-btn">
+                    About
                 </button>
                 <button
                     hx-get="/partials/resume"
                     hx-target="#content"
                     hx-swap="innerHTML"
-                    class="px-4 py-2 rounded-lg font-medium text-gray-700 hover:bg-cyan-100 hover:text-cyan-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                    class="nav-btn">
                     Resume
                 </button>
                 <button
                     hx-get="/partials/projects"
                     hx-target="#content"
                     hx-swap="innerHTML"
-                    class="px-4 py-2 rounded-lg font-medium text-gray-700 hover:bg-cyan-100 hover:text-cyan-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                    class="nav-btn">
                     Projects
+                </button>
+                <button
+                    hx-get="/partials/blog"
+                    hx-target="#content"
+                    hx-swap="innerHTML"
+                    class="nav-btn">
+                    Blog
+                </button>
+                <div class="nav-divider"></div>
+                <button id="theme-toggle" class="nav-btn" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden dark:block" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
+                    </svg>
+                    <svg id="moon-icon" class="w-5 h-5 block dark:hidden" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+                    </svg>
                 </button>
             </div>
         </div>
@@ -54,11 +80,30 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-gray-300 py-6 mt-auto">
+    <footer class="site-footer">
         <div class="container mx-auto px-4 text-center">
             <p>&copy; 2026 Aaron McGrath. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+
+        themeToggle.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.theme = isDark ? 'dark' : 'light';
+        });
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!('theme' in localStorage)) {
+                if (e.matches) {
+                    document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                }
+            }
+        });
+    </script>
 </body>
 </html>
 {{end}}

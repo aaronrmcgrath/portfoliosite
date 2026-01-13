@@ -1,0 +1,66 @@
+{{define "blog.html"}}
+<div class="terminal-container">
+    <!-- Terminal window chrome -->
+    <div class="terminal-header">
+        <span class="terminal-dot bg-red-500"></span>
+        <span class="terminal-dot bg-yellow-500"></span>
+        <span class="terminal-dot bg-green-500"></span>
+        <span class="ml-4 text-sm text-gray-600 dark:text-gray-400 font-mono">user@portfolio:~/blog</span>
+    </div>
+
+    <div class="terminal-body">
+        <h2 class="text-xl font-bold mb-6 terminal-prompt">ls -la posts/</h2>
+
+        <div class="space-y-6">
+            <!-- Post 1 -->
+            <article class="hover-highlight-line">
+                <p class="terminal-prompt font-bold">cat why-go-htmx.md</p>
+                <div class="mt-2 pl-4 border-l-2 border-gray-400 dark:border-terminal-green/50">
+                    <h3 class="font-bold text-lg">Why I Chose Go and HTMX for This Site</h3>
+                    <p class="text-sm opacity-70 mb-2">2024-01-15 | 3 min read</p>
+                    <p class="text-sm md:text-base">
+                        When rebuilding my portfolio, I wanted simplicity without sacrificing interactivity.
+                        The combination of Go's robust standard library and HTMX's hypermedia approach
+                        proved to be the perfect match for a personal site that loads fast and stays maintainable.
+                    </p>
+                </div>
+            </article>
+
+            <!-- Post 2 -->
+            <article class="hover-highlight-line">
+                <p class="terminal-prompt font-bold">cat learning-journey.md</p>
+                <div class="mt-2 pl-4 border-l-2 border-gray-400 dark:border-terminal-green/50">
+                    <h3 class="font-bold text-lg">The Joy of Learning New Technologies</h3>
+                    <p class="text-sm opacity-70 mb-2">2023-12-20 | 4 min read</p>
+                    <p class="text-sm md:text-base">
+                        From the MEAN stack in 2016 to Go and HTMX today, the landscape of web development
+                        has shifted dramatically. Yet the fundamentals remain: solve problems elegantly,
+                        write maintainable code, and never stop learning.
+                    </p>
+                </div>
+            </article>
+
+            <!-- Post 3 -->
+            <article class="hover-highlight-line">
+                <p class="terminal-prompt font-bold">cat gardening-software.md</p>
+                <div class="mt-2 pl-4 border-l-2 border-gray-400 dark:border-terminal-green/50">
+                    <h3 class="font-bold text-lg">Gardening and Software: Unexpected Parallels</h3>
+                    <p class="text-sm opacity-70 mb-2">2023-11-10 | 2 min read</p>
+                    <p class="text-sm md:text-base">
+                        Both require patience, planning, and the understanding that growth takes time.
+                        You plant seeds, nurture them, prune when necessary, and eventually harvest
+                        the results of your labor.
+                    </p>
+                </div>
+            </article>
+        </div>
+
+        <div class="mt-8 pt-4 border-t border-gray-400 dark:border-terminal-green/30">
+            <p class="terminal-prompt">
+                <span>echo "More posts coming soon..."</span>
+                <span class="terminal-cursor"></span>
+            </p>
+        </div>
+    </div>
+</div>
+{{end}}
