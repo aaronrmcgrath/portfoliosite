@@ -86,27 +86,42 @@ class Ball:
 
 class AIController:
     """Simple AI controller for the computer paddle"""
-    def __init__(self, paddle, difficulty=0.7):
+    def __init__(self, paddle, difficulty=0.5):
         self.paddle = paddle
         self.difficulty = difficulty
         self.target_y = CANVAS_HEIGHT / 2
+        self.reaction_delay = 0  # Frames before AI reacts to ball direction change
+        self.frames_since_direction_change = 0
+        self.last_ball_vx = 0
 
     def update(self, ball):
         """Update AI paddle position based on ball"""
-        # Only react when ball is coming towards AI
+        # Detect when ball changes direction (was hit by player)
+        if ball.vx > 0 and self.last_ball_vx <= 0:
+            self.frames_since_direction_change = 0
+            self.reaction_delay = random.randint(15, 35)  # Random delay before reacting
+        self.last_ball_vx = ball.vx
+
+        # Only react when ball is coming towards AI AND after reaction delay
         if ball.vx > 0:
+            self.frames_since_direction_change += 1
+
+            # Wait for reaction delay before tracking
+            if self.frames_since_direction_change < self.reaction_delay:
+                return  # AI is "thinking"
+
             # Predict where ball will be
             if ball.vx != 0:
                 time_to_reach = (self.paddle.x - ball.x) / ball.vx
                 predicted_y = ball.y + ball.vy * time_to_reach
 
                 # Add some randomness based on difficulty
-                error = (1 - self.difficulty) * 100
+                error = (1 - self.difficulty) * 150  # Increased error range
                 self.target_y = predicted_y + random.uniform(-error, error)
 
         # Move towards target with some lag
         diff = self.target_y - (self.paddle.y + self.paddle.height / 2)
-        move_speed = 6 * self.difficulty
+        move_speed = 5 * self.difficulty  # Slightly slower base speed
 
         if abs(diff) > move_speed:
             if diff > 0:

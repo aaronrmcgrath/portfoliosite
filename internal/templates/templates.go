@@ -1,13 +1,18 @@
 package templates
 
 import (
+	"fmt"
 	"html/template"
 	"io"
 	"path/filepath"
 )
 
 var templates *template.Template
-var arcadeTemplates *template.Template
+
+// arcadeTemplateMap holds separate template instances for each arcade page
+// This is necessary because each page defines "arcade-content" and they would
+// overwrite each other if parsed into a single template set
+var arcadeTemplateMap map[string]*template.Template
 
 // Load parses all templates from the templates directory
 func Load() error {
@@ -23,14 +28,34 @@ func Load() error {
 		return err
 	}
 
-	// Load arcade templates
-	arcadeTemplates, err = template.ParseGlob(filepath.Join("templates", "arcade", "*.html"))
+	// Load arcade templates - each page needs its own template instance
+	// because they all define "arcade-content" which would conflict
+	arcadeTemplateMap = make(map[string]*template.Template)
+
+	// Get base template path
+	basePath := filepath.Join("templates", "arcade", "base.html")
+
+	// Load index page (base + index)
+	indexTmpl, err := template.ParseFiles(basePath, filepath.Join("templates", "arcade", "index.html"))
 	if err != nil {
-		return err
+		return fmt.Errorf("failed to load arcade index: %w", err)
 	}
-	arcadeTemplates, err = arcadeTemplates.ParseGlob(filepath.Join("templates", "arcade", "games", "*.html"))
+	arcadeTemplateMap["index.html"] = indexTmpl
+
+	// Load each game template (base + game)
+	gameFiles, err := filepath.Glob(filepath.Join("templates", "arcade", "games", "*.html"))
 	if err != nil {
-		return err
+		return fmt.Errorf("failed to glob game templates: %w", err)
+	}
+
+	for _, gameFile := range gameFiles {
+		gameTmpl, err := template.ParseFiles(basePath, gameFile)
+		if err != nil {
+			return fmt.Errorf("failed to load game template %s: %w", gameFile, err)
+		}
+		// Use just the filename as the key
+		name := filepath.Base(gameFile)
+		arcadeTemplateMap[name] = gameTmpl
 	}
 
 	return nil
@@ -48,5 +73,10 @@ func RenderPartial(w io.Writer, name string, data any) error {
 
 // RenderArcade renders an arcade template
 func RenderArcade(w io.Writer, name string, data any) error {
-	return arcadeTemplates.ExecuteTemplate(w, name, data)
+	tmpl, ok := arcadeTemplateMap[name]
+	if !ok {
+		return fmt.Errorf("arcade template not found: %s", name)
+	}
+	// Execute the base template which will pull in the page's arcade-content
+	return tmpl.ExecuteTemplate(w, "arcade-base", data)
 }

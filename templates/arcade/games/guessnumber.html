@@ -1,0 +1,184 @@
+{{template "arcade-base" .}}
+
+{{define "arcade-content"}}
+<div class="arcade-game-container">
+    <div class="arcade-game-header">
+        <a href="/" class="arcade-nav-link">&larr; Back to Games</a>
+        <h2 class="arcade-game-name">GUESS MY NUMBER</h2>
+        <div class="arcade-score-display">
+            <span id="attempt-count">0</span> tries
+        </div>
+    </div>
+
+    <div class="arcade-canvas-wrapper" style="min-height: 400px;">
+        <!-- Game Display Area -->
+        <div id="game-display" class="guess-game-display">
+            <p id="game-mode" class="guess-mode-title">MODE 1</p>
+            <p id="game-message" class="guess-message">I'm thinking of a number between 1 and 100...</p>
+            <p id="game-hint" class="guess-hint"></p>
+            <p id="game-range" class="guess-range">Range: 1 - 100</p>
+        </div>
+
+        <!-- Player Mode Controls (Mode 1) -->
+        <div id="player-controls" class="guess-controls">
+            <input type="number" id="guess-input" class="guess-input" min="1" max="100" placeholder="Enter 1-100">
+            <button id="submit-guess" class="arcade-start-btn">GUESS!</button>
+        </div>
+
+        <!-- Computer Mode Controls (Mode 2) -->
+        <div id="computer-controls" class="guess-controls hidden">
+            <button id="btn-higher" class="guess-btn guess-btn-higher">HIGHER</button>
+            <button id="btn-correct" class="guess-btn guess-btn-correct">CORRECT!</button>
+            <button id="btn-lower" class="guess-btn guess-btn-lower">LOWER</button>
+        </div>
+
+        <!-- Start/Restart Overlay -->
+        <div id="game-overlay" class="arcade-overlay">
+            <p class="arcade-instructions">GUESS MY NUMBER</p>
+            <p class="arcade-instructions-sub">Two games in one!</p>
+            <p class="arcade-instructions-sub" style="color: #00ffff; margin-top: 1rem;">
+                1. You guess the computer's number<br>
+                2. Computer guesses YOUR number
+            </p>
+            <button id="start-btn" class="arcade-start-btn">
+                START GAME
+            </button>
+        </div>
+    </div>
+
+    <div class="arcade-game-info">
+        <p>Mode 1: Type a number and click GUESS | Mode 2: Click HIGHER, LOWER, or CORRECT</p>
+    </div>
+</div>
+
+<style>
+    .guess-game-display {
+        padding: 2rem;
+        text-align: center;
+        min-height: 250px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .guess-mode-title {
+        font-family: 'Fascinate', cursive;
+        font-size: 1rem;
+        color: #ffff00;
+        text-shadow: 0 0 10px #ffff00;
+    }
+
+    .guess-message {
+        font-size: 0.75rem;
+        color: #00ffff;
+        text-shadow: 0 0 5px #00ffff;
+        max-width: 90%;
+        line-height: 1.6;
+    }
+
+    .guess-hint {
+        font-size: 1.5rem;
+        color: #ff00ff;
+        text-shadow: 0 0 15px #ff00ff;
+        min-height: 2rem;
+    }
+
+    .guess-range {
+        font-size: 0.625rem;
+        color: #888;
+    }
+
+    .guess-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        padding: 1.5rem;
+        background: rgba(0, 0, 0, 0.5);
+        border-top: 2px solid #333;
+        flex-wrap: wrap;
+    }
+
+    .guess-controls.hidden {
+        display: none;
+    }
+
+    .guess-input {
+        background: #0a0a0a;
+        border: 3px solid #00ff00;
+        color: #00ff00;
+        font-family: 'Press Start 2P', monospace;
+        font-size: 1rem;
+        padding: 0.75rem 1rem;
+        width: 150px;
+        text-align: center;
+        outline: none;
+    }
+
+    .guess-input:focus {
+        box-shadow: 0 0 15px #00ff00;
+    }
+
+    .guess-input::placeholder {
+        color: #333;
+        font-size: 0.5rem;
+    }
+
+    .guess-btn {
+        font-family: 'Press Start 2P', monospace;
+        font-size: 0.625rem;
+        padding: 1rem 1.5rem;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+
+    .guess-btn-higher {
+        background: #00ff00;
+        color: #0a0a0a;
+    }
+
+    .guess-btn-higher:hover {
+        box-shadow: 0 0 20px #00ff00;
+        transform: scale(1.05);
+    }
+
+    .guess-btn-lower {
+        background: #ff6600;
+        color: #0a0a0a;
+    }
+
+    .guess-btn-lower:hover {
+        box-shadow: 0 0 20px #ff6600;
+        transform: scale(1.05);
+    }
+
+    .guess-btn-correct {
+        background: #ff00ff;
+        color: #0a0a0a;
+    }
+
+    .guess-btn-correct:hover {
+        box-shadow: 0 0 20px #ff00ff;
+        transform: scale(1.05);
+    }
+
+    @media (max-width: 500px) {
+        .guess-input {
+            width: 120px;
+            font-size: 0.875rem;
+        }
+        .guess-btn {
+            font-size: 0.5rem;
+            padding: 0.75rem 1rem;
+        }
+        .guess-message {
+            font-size: 0.625rem;
+        }
+    }
+</style>
+
+<script type="py" src="/static/py/guess_number_game.py" config='{"packages": []}'></script>
+{{end}}

@@ -75,6 +75,7 @@ func main() {
 	arcadeRouter.Handle("/static/*", http.StripPrefix("/static/", fileServer))
 	arcadeRouter.Get("/", handlers.ArcadeIndex)
 	arcadeRouter.Get("/games/tennis", handlers.TennisGame)
+	arcadeRouter.Get("/games/guessnumber", handlers.GuessNumberGame)
 
 	// Host-based routing
 	hostRouter := hostSwitch{

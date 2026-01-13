@@ -107,13 +107,13 @@
     padding: 0.5rem;
     border-radius: 0.5rem;
     color: #f8fafc;
-    transition: background-color 150ms, opacity 150ms;
+    transition: color 150ms;
     opacity: 0.7;
 }
 
 .theme-toggle-btn:hover {
-    background-color: #334155;
-    color: #a78bfa;
+    color: #7c3aed;
+    opacity: 1;
 }
 
 .dark .theme-toggle-btn {
@@ -121,8 +121,33 @@
 }
 
 .dark .theme-toggle-btn:hover {
-    background-color: #334155;
-    color: #a78bfa;
+    color: #7c3aed;
+    opacity: 1;
+}
+
+/* Header Name Hover - only the name, not subtitle */
+.header-name {
+    transition: color 150ms;
+    display: inline-block;
+}
+
+.header-name:hover {
+    color: #7c3aed !important;
+}
+
+.dark .header-name:hover {
+    color: #7c3aed !important;
+}
+
+/* Text Selection Styling */
+::selection {
+    background-color: #7c3aed;
+    color: #ffffff;
+}
+
+.dark ::selection {
+    background-color: #7c3aed;
+    color: #ffffff;
 }
 
 .site-footer {
@@ -151,12 +176,11 @@
 }
 
 .hover-highlight-line:hover {
-    background-color: rgb(207 250 254 / 0.5);
+    background-color: rgba(124, 58, 237, 0.2);
 }
 
 .dark .hover-highlight-line:hover {
-    /* background-color: rgb(22 78 99 / 0.3); */
-    background-color: #a78bfa;
+    background-color: rgba(124, 58, 237, 0.3);
 }
 
 .hover-highlight-block {
@@ -164,11 +188,11 @@
 }
 
 .hover-highlight-block:hover {
-    background-color: rgb(243 244 246 / 0.5);
+    background-color: rgba(124, 58, 237, 0.15);
 }
 
 .dark .hover-highlight-block:hover {
-    background-color: rgb(31 41 55 / 0.5);
+    background-color: rgba(124, 58, 237, 0.25);
 }
 
 /* ===== 90s TERMINAL STYLE ===== */
@@ -271,7 +295,6 @@
 
 .dark .brutal-container {
     background-color: #334155;
-    /* background-color: #1e293b; */
     border-color: #64748b;
 }
 
@@ -316,7 +339,6 @@
 
 .dark .brutal-card:hover {
     background-color: #1e293b;
-    /* background-color: #334155; */
     box-shadow: 8px 8px 0 0 #a78bfa;
 }
 

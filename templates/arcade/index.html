@@ -22,14 +22,26 @@
             <span class="arcade-play-btn">INSERT COIN</span>
         </a>
 
-        <!-- Placeholder for future games -->
-        <div class="arcade-game-card arcade-coming-soon">
+        <!-- Guess My Number Game Card -->
+        <a href="/games/guessnumber" class="arcade-game-card">
             <div class="arcade-game-preview">
-                <div class="arcade-placeholder">?</div>
+                <svg viewBox="0 0 200 150" class="w-full h-full">
+                    <!-- Number guessing game preview -->
+                    <rect fill="#0a0a0a" width="200" height="150"/>
+                    <!-- Question mark -->
+                    <text x="100" y="70" text-anchor="middle" font-family="monospace" font-size="48" fill="#ff00ff" style="text-shadow: 0 0 10px #ff00ff;">?</text>
+                    <!-- Numbers floating around -->
+                    <text x="40" y="40" font-family="monospace" font-size="16" fill="#00ff00" opacity="0.7">42</text>
+                    <text x="150" y="50" font-family="monospace" font-size="14" fill="#00ffff" opacity="0.6">17</text>
+                    <text x="35" y="120" font-family="monospace" font-size="12" fill="#ffff00" opacity="0.5">73</text>
+                    <text x="155" y="115" font-family="monospace" font-size="15" fill="#00ff00" opacity="0.6">88</text>
+                    <text x="100" y="130" font-family="monospace" font-size="10" fill="#888">1-100</text>
+                </svg>
             </div>
-            <h3 class="arcade-game-title">COMING SOON</h3>
-            <p class="arcade-game-desc">More games in development</p>
-        </div>
+            <h3 class="arcade-game-title">GUESS MY NUMBER</h3>
+            <p class="arcade-game-desc">Can you guess the secret number?</p>
+            <span class="arcade-play-btn">INSERT COIN</span>
+        </a>
     </div>
 </div>
 {{end}}
