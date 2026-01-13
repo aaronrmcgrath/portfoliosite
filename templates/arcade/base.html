@@ -1,0 +1,48 @@
+{{define "arcade-base"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.Title}} | Aaron's Arcade</title>
+
+    <!-- Google Fonts - Retro arcade fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fascinate&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="/static/css/output.css">
+
+    <!-- PyScript -->
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+</head>
+<body class="arcade-body">
+    <!-- Arcade Header -->
+    <header class="arcade-header">
+        <a href="https://aaronrmcgrath.com" class="arcade-back-link">
+            &larr; Back to Portfolio
+        </a>
+        <div class="arcade-header-content">
+            <a href="/" class="block text-center">
+                <h1 class="arcade-title">Aaron's Arcade</h1>
+                <p class="arcade-subtitle">Retro Games in Python</p>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="arcade-main">
+        {{block "arcade-content" .}}{{end}}
+    </main>
+
+    <!-- Footer -->
+    <footer class="arcade-footer">
+        <div class="container mx-auto px-4 text-center">
+            <p>Built with PyScript &amp; Python | &copy; 2026 Aaron McGrath</p>
+        </div>
+    </footer>
+</body>
+</html>
+{{end}}

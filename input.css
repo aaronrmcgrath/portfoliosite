@@ -577,6 +577,352 @@
     background-color: rgb(31 41 55 / 0.3);
 }
 
+/* ===== ARCADE RETRO STYLE ===== */
+.arcade-body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 50%, #0a0a0a 100%);
+    color: #00ff00;
+    font-family: 'Press Start 2P', monospace;
+}
+
+.arcade-header {
+    background: linear-gradient(to bottom, #1a0a2e, #0a0a0a);
+    border-bottom: 4px solid #ff00ff;
+    padding: 1.5rem 1rem;
+    position: relative;
+}
+
+.arcade-header-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.arcade-title {
+    font-family: 'Fascinate', cursive;
+    font-size: 2.5rem;
+    text-align: center;
+    color: #ff00ff;
+    text-shadow:
+        0 0 10px #ff00ff,
+        0 0 20px #ff00ff,
+        0 0 40px #ff00ff;
+    letter-spacing: 0.1em;
+}
+
+@media (min-width: 768px) {
+    .arcade-title {
+        font-size: 3rem;
+    }
+}
+
+.arcade-subtitle {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.625rem;
+    text-align: center;
+    color: #00ffff;
+    margin-top: 0.5rem;
+    text-shadow: 0 0 5px #00ffff;
+}
+
+@media (min-width: 768px) {
+    .arcade-subtitle {
+        font-size: 0.75rem;
+    }
+}
+
+.arcade-back-link {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    color: #00ff00;
+    font-size: 0.5rem;
+    text-decoration: none;
+    padding: 0.5rem 0.75rem;
+    border: 2px solid #00ff00;
+    transition: all 0.2s;
+}
+
+@media (min-width: 768px) {
+    .arcade-back-link {
+        font-size: 0.625rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+.arcade-back-link:hover {
+    background: #00ff00;
+    color: #0a0a0a;
+    box-shadow: 0 0 10px #00ff00;
+}
+
+.arcade-main {
+    padding: 2rem 1rem;
+    min-height: calc(100vh - 200px);
+}
+
+.arcade-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.arcade-section-title {
+    font-family: 'Fascinate', cursive;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #ffff00;
+    text-shadow: 0 0 10px #ffff00;
+    margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+    .arcade-section-title {
+        font-size: 2rem;
+    }
+}
+
+.arcade-game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+}
+
+.arcade-game-card {
+    background: rgba(26, 10, 46, 0.8);
+    border: 4px solid #ff00ff;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    max-width: 300px;
+}
+
+.arcade-game-card:hover {
+    transform: translateY(-8px);
+    box-shadow:
+        0 0 20px #ff00ff,
+        inset 0 0 20px rgba(255, 0, 255, 0.2);
+}
+
+.arcade-game-preview {
+    background: #0a0a0a;
+    border: 2px solid #00ffff;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.arcade-game-title {
+    font-family: 'Fascinate', cursive;
+    font-size: 1.25rem;
+    color: #00ffff;
+    margin-bottom: 0.5rem;
+}
+
+.arcade-game-desc {
+    font-size: 0.5rem;
+    color: #888;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+    .arcade-game-desc {
+        font-size: 0.625rem;
+    }
+}
+
+.arcade-play-btn {
+    display: inline-block;
+    background: #ff00ff;
+    color: #0a0a0a;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.625rem;
+    font-family: 'Press Start 2P', monospace;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.arcade-play-btn:hover {
+    background: #00ff00;
+    box-shadow: 0 0 15px #00ff00;
+}
+
+.arcade-coming-soon {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.arcade-placeholder {
+    font-size: 3rem;
+    color: #333;
+}
+
+/* Game Page Styles */
+.arcade-game-container {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.arcade-game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.arcade-nav-link {
+    color: #00ff00;
+    font-size: 0.5rem;
+    text-decoration: none;
+    padding: 0.5rem;
+    border: 2px solid #00ff00;
+    transition: all 0.2s;
+}
+
+@media (min-width: 768px) {
+    .arcade-nav-link {
+        font-size: 0.625rem;
+    }
+}
+
+.arcade-nav-link:hover {
+    background: #00ff00;
+    color: #0a0a0a;
+}
+
+.arcade-game-name {
+    font-family: 'Fascinate', cursive;
+    font-size: 1.25rem;
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff;
+}
+
+@media (min-width: 768px) {
+    .arcade-game-name {
+        font-size: 1.5rem;
+    }
+}
+
+.arcade-score-display {
+    font-size: 1.25rem;
+    color: #ffff00;
+    text-shadow: 0 0 5px #ffff00;
+}
+
+@media (min-width: 768px) {
+    .arcade-score-display {
+        font-size: 1.5rem;
+    }
+}
+
+.arcade-canvas-wrapper {
+    position: relative;
+    border: 4px solid #ff00ff;
+    box-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
+    max-width: 100%;
+    overflow: hidden;
+}
+
+#game-canvas {
+    display: block;
+    background: #0a0a0a;
+    max-width: 100%;
+    height: auto;
+}
+
+.arcade-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.arcade-overlay.hidden {
+    display: none;
+}
+
+.arcade-instructions {
+    font-size: 0.625rem;
+    color: #00ffff;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .arcade-instructions {
+        font-size: 0.75rem;
+    }
+}
+
+.arcade-instructions-sub {
+    font-size: 0.5rem;
+    color: #888;
+    text-align: center;
+}
+
+.arcade-start-btn {
+    background: #ff00ff;
+    color: #0a0a0a;
+    padding: 1rem 2rem;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.625rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+@media (min-width: 768px) {
+    .arcade-start-btn {
+        font-size: 0.75rem;
+    }
+}
+
+.arcade-start-btn:hover {
+    background: #00ff00;
+    box-shadow: 0 0 20px #00ff00;
+    transform: scale(1.05);
+}
+
+.arcade-game-info {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.5rem;
+    color: #888;
+    line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+    .arcade-game-info {
+        font-size: 0.625rem;
+    }
+}
+
+.arcade-footer {
+    background: #0a0a0a;
+    border-top: 2px solid #ff00ff;
+    padding: 1.5rem;
+    font-size: 0.5rem;
+    color: #666;
+}
+
 /* ===== ANIMATIONS ===== */
 @keyframes blink {
     50% { opacity: 0; }

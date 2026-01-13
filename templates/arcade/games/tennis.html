@@ -1,0 +1,30 @@
+{{template "arcade-base" .}}
+
+{{define "arcade-content"}}
+<div class="arcade-game-container">
+    <div class="arcade-game-header">
+        <a href="/" class="arcade-nav-link">&larr; Back to Games</a>
+        <h2 class="arcade-game-name">CLASSIC TENNIS</h2>
+        <div class="arcade-score-display">
+            <span id="player-score">0</span> - <span id="ai-score">0</span>
+        </div>
+    </div>
+
+    <div class="arcade-canvas-wrapper">
+        <canvas id="game-canvas" width="800" height="600"></canvas>
+        <div id="game-overlay" class="arcade-overlay">
+            <p class="arcade-instructions">MOVE MOUSE TO CONTROL PADDLE</p>
+            <p class="arcade-instructions-sub">First to 3 points wins!</p>
+            <button id="start-btn" class="arcade-start-btn">
+                START GAME
+            </button>
+        </div>
+    </div>
+
+    <div class="arcade-game-info">
+        <p>Controls: Move your mouse up and down to control the left paddle</p>
+    </div>
+</div>
+
+<script type="py" src="/static/py/tennis_game.py" config='{"packages": []}'></script>
+{{end}}

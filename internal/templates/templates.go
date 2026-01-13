@@ -7,6 +7,7 @@ import (
 )
 
 var templates *template.Template
+var arcadeTemplates *template.Template
 
 // Load parses all templates from the templates directory
 func Load() error {
@@ -22,6 +23,16 @@ func Load() error {
 		return err
 	}
 
+	// Load arcade templates
+	arcadeTemplates, err = template.ParseGlob(filepath.Join("templates", "arcade", "*.html"))
+	if err != nil {
+		return err
+	}
+	arcadeTemplates, err = arcadeTemplates.ParseGlob(filepath.Join("templates", "arcade", "games", "*.html"))
+	if err != nil {
+		return err
+	}
+
 	return nil
 }
 
@@ -33,4 +44,9 @@ func Render(w io.Writer, name string, data any) error {
 // RenderPartial renders a partial template (for HTMX responses)
 func RenderPartial(w io.Writer, name string, data any) error {
 	return templates.ExecuteTemplate(w, name, data)
+}
+
+// RenderArcade renders an arcade template
+func RenderArcade(w io.Writer, name string, data any) error {
+	return arcadeTemplates.ExecuteTemplate(w, name, data)
 }

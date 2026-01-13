@@ -1,0 +1,35 @@
+{{template "arcade-base" .}}
+
+{{define "arcade-content"}}
+<div class="arcade-container">
+    <h2 class="arcade-section-title">SELECT YOUR GAME</h2>
+
+    <div class="arcade-game-grid">
+        <!-- Tennis Game Card -->
+        <a href="/games/tennis" class="arcade-game-card">
+            <div class="arcade-game-preview">
+                <svg viewBox="0 0 200 150" class="w-full h-full">
+                    <!-- Simple Pong preview -->
+                    <rect fill="#0a0a0a" width="200" height="150"/>
+                    <line x1="100" y1="0" x2="100" y2="150" stroke="#333" stroke-width="2" stroke-dasharray="8,8"/>
+                    <rect x="15" y="55" width="8" height="40" fill="#00ff00"/>
+                    <rect x="177" y="55" width="8" height="40" fill="#00ff00"/>
+                    <circle cx="100" cy="75" r="8" fill="#ff00ff"/>
+                </svg>
+            </div>
+            <h3 class="arcade-game-title">CLASSIC TENNIS</h3>
+            <p class="arcade-game-desc">Pong-style paddle game. Beat the AI!</p>
+            <span class="arcade-play-btn">INSERT COIN</span>
+        </a>
+
+        <!-- Placeholder for future games -->
+        <div class="arcade-game-card arcade-coming-soon">
+            <div class="arcade-game-preview">
+                <div class="arcade-placeholder">?</div>
+            </div>
+            <h3 class="arcade-game-title">COMING SOON</h3>
+            <p class="arcade-game-desc">More games in development</p>
+        </div>
+    </div>
+</div>
+{{end}}
