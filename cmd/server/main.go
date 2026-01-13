@@ -31,9 +31,9 @@ func main() {
 	// Routes
 	r.Get("/", handlers.Index)
 	r.Get("/partials/about", handlers.About)
-	r.Get("/partials/resume", handlers.Resume)
 	r.Get("/partials/projects", handlers.Projects)
-	r.Get("/partials/blog", handlers.Blog)
+	// r.Get("/partials/blog", handlers.Blog) // Blog hidden for now - uncomment when ready
+	r.Get("/partials/resume", handlers.Resume)
 
 	// Get port from environment or default to 3000
 	port := os.Getenv("PORT")
