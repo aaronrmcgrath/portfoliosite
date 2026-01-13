@@ -112,8 +112,8 @@
 }
 
 .theme-toggle-btn:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    opacity: 1;
+    background-color: #334155;
+    color: #a78bfa;
 }
 
 .dark .theme-toggle-btn {
@@ -121,7 +121,8 @@
 }
 
 .dark .theme-toggle-btn:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #334155;
+    color: #a78bfa;
 }
 
 .site-footer {
@@ -154,7 +155,8 @@
 }
 
 .dark .hover-highlight-line:hover {
-    background-color: rgb(22 78 99 / 0.3);
+    /* background-color: rgb(22 78 99 / 0.3); */
+    background-color: #a78bfa;
 }
 
 .hover-highlight-block {
@@ -268,7 +270,8 @@
 }
 
 .dark .brutal-container {
-    background-color: #1e293b;
+    background-color: #334155;
+    /* background-color: #1e293b; */
     border-color: #64748b;
 }
 
@@ -312,7 +315,8 @@
 }
 
 .dark .brutal-card:hover {
-    background-color: #334155;
+    background-color: #1e293b;
+    /* background-color: #334155; */
     box-shadow: 8px 8px 0 0 #a78bfa;
 }
 
