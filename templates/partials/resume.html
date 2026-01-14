@@ -2,31 +2,39 @@
 <div class="brutal-container">
     <h2 class="brutal-header">Resume</h2>
 
-    <div class="p-6">
-        <div class="text-center mb-6">
-            <p class="brutal-text mb-4">
-                View my resume below or
-                <a href="/static/files/armcgrath_resume.pdf" target="_blank"
-                   class="terminal-link font-medium">
-                    download it here
-                </a>
-            </p>
+    <div class="p-4 md:p-6">
+        <!-- Download button - prominent on all screens -->
+        <div class="text-center mb-4 md:mb-6">
+            <a href="/static/files/armcgrath_resume.pdf"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="brutal-link inline-flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+                Download Resume (PDF)
+            </a>
         </div>
 
-        <!-- PDF Embed -->
+        <!-- Mobile hint - PDFs often don't display well on mobile -->
+        <p class="brutal-text text-sm text-center mb-4 md:hidden opacity-70">
+            For best viewing, download the PDF or view on desktop.
+        </p>
+
+        <!-- PDF Embed - responsive height -->
         <div class="pdf-viewer-container">
             <embed
                 src="/static/files/armcgrath_resume.pdf"
                 type="application/pdf"
-                class="w-full"
-                style="height: 800px;">
+                class="w-full pdf-embed"
+                title="Aaron McGrath Resume">
             </embed>
 
             <!-- Fallback for browsers without PDF support -->
             <noscript>
                 <p class="p-8 text-center brutal-text">
                     Your browser does not support embedded PDFs.
-                    <a href="/static/files/armcgrath_resume.pdf" target="_blank" class="terminal-link">
+                    <a href="/static/files/armcgrath_resume.pdf" target="_blank" rel="noopener noreferrer" class="terminal-link">
                         Click here to download the PDF
                     </a>
                 </p>

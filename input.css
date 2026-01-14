@@ -395,6 +395,20 @@
     background-color: #334155;
 }
 
+/* Responsive PDF embed */
+.pdf-embed {
+    height: 70vh;
+    min-height: 400px;
+    max-height: 900px;
+}
+
+@media (max-width: 767px) {
+    .pdf-embed {
+        height: 50vh;
+        min-height: 300px;
+    }
+}
+
 .brutal-text {
     color: #1f2937;
 }
@@ -948,4 +962,157 @@
 /* ===== ANIMATIONS ===== */
 @keyframes blink {
     50% { opacity: 0; }
+}
+
+/* ===== ACCESSIBILITY ===== */
+
+/* Skip Link - Hidden until focused */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #7c3aed;
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0 0 0.5rem 0.5rem;
+    font-weight: 600;
+    z-index: 9999;
+    transition: top 200ms;
+    text-decoration: none;
+}
+
+.skip-link:focus {
+    top: 0;
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+
+/* Focus-visible for keyboard navigation only */
+.nav-btn:focus-visible,
+.theme-toggle-btn:focus-visible,
+.snow-toggle-btn:focus-visible,
+.brutal-link:focus-visible,
+.terminal-link:focus-visible {
+    outline: 2px solid #7c3aed;
+    outline-offset: 2px;
+}
+
+/* Remove default focus for mouse users */
+.nav-btn:focus:not(:focus-visible),
+.theme-toggle-btn:focus:not(:focus-visible),
+.snow-toggle-btn:focus:not(:focus-visible),
+.brutal-link:focus:not(:focus-visible),
+.terminal-link:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .brutal-card:hover {
+        transform: none;
+    }
+
+    .arcade-game-card:hover {
+        transform: none;
+    }
+}
+
+/* ===== SNOW TOGGLE BUTTON - TOP LEFT (Easter Egg) ===== */
+.snow-toggle-btn {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    color: #f8fafc;
+    transition: color 150ms, opacity 150ms;
+    opacity: 0.15;
+}
+
+.snow-toggle-btn:hover {
+    color: #7c3aed;
+    opacity: 0.8;
+}
+
+.snow-toggle-btn[aria-pressed="true"] {
+    opacity: 0.9;
+    color: #60a5fa;
+}
+
+.dark .snow-toggle-btn {
+    color: #e2e8f0;
+    opacity: 0.15;
+}
+
+.dark .snow-toggle-btn:hover {
+    color: #7c3aed;
+    opacity: 0.8;
+}
+
+.dark .snow-toggle-btn[aria-pressed="true"] {
+    opacity: 0.9;
+    color: #93c5fd;
+}
+
+/* ===== RESPONSIVE IMPROVEMENTS ===== */
+
+/* Smaller nav buttons on mobile */
+@media (max-width: 767px) {
+    .nav-btn {
+        padding: 0.375rem 0.75rem;
+        font-size: 0.875rem;
+    }
+
+    .brutal-card {
+        padding: 1rem;
+    }
+
+    .brutal-header {
+        padding: 0.75rem 1rem;
+        font-size: 1.25rem;
+    }
+
+    .brutal-container > .p-6 {
+        padding: 1rem;
+    }
+
+    .newspaper-container {
+        padding: 1rem;
+    }
+
+    .site-footer {
+        padding: 1rem 0;
+        font-size: 0.875rem;
+    }
+
+    /* Ensure toggle buttons don't overlap on very small screens */
+    .snow-toggle-btn,
+    .theme-toggle-btn {
+        padding: 0.375rem;
+    }
+
+    .snow-toggle-btn svg,
+    .theme-toggle-btn svg {
+        width: 1rem;
+        height: 1rem;
+    }
+}
+
+/* Touch action for better mobile response */
+.nav-btn,
+.theme-toggle-btn,
+.snow-toggle-btn,
+.brutal-link,
+.arcade-play-btn,
+.arcade-start-btn {
+    touch-action: manipulation;
 }
